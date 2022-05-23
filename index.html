@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+ <div id="toast"></div>
+    
+    <div>
+        <div class="btn btn--success"> Show success toast</div>
+        <div class="btn btn--error"> Show error toast</div>
+    </div>
+
+    <script>
+        // Toast funtion
+        function toast({
+            title = '',
+            message = '',
+            type = 'info',
+            duration = 3000
+        }) {
+            const main = document.getElementById('toast');
+            if (main){
+                const toast = document.createElement('div');
+
+
+                toast.classList.add('toast', `toast--${type}`);
+                toast.innerHTML = `
+                    <div class="toast_icon">
+                        <i class="ti-check"></i>
+                    </div>
+                    <div class="toast_body">
+                        <h3 class="toast_title">${title}</h3>
+                        <p class="toast_msg">${message}</p>
+                    </div>
+                    <div class="toast_close">
+                        <i class="ti-close"></i>
+                    </div>
+                `;
+                main.appendChild(toast);
+            }
+        }
+
+
+        toast({
+            title: 'Success',
+            message: 'Máy vi tính kết nối(Window, Ubuntu hoặc MacOS)',
+            type: 'success',
+            duration: 3000
+        });var
+    </script>
+
+</body>
+</html>
